@@ -1,0 +1,48 @@
+<RelativeLayout
+    android:id="@+id/id_mediapool_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+     
+	<com.example.lansongeditordemo.TestTouchView
+            android:id="@+id/mediapool_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+	
+	 <LinearLayout 
+          android:id="@+id/id_mediapool_saveplay"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/corners_btn_orange_bg"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="50dip"
+          android:orientation="vertical">
+          
+          <ImageView 
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:src="@drawable/play2"/>
+          <TextView 
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+            	android:text="查看实时保存画面"
+            android:layout_margin="5dip"
+              />
+      </LinearLayout>
+      	   
+      	  
+      	<TextView 
+      	    android:layout_width="match_parent"
+      	    android:layout_height="wrap_content"
+      	    android:text="滑动画面,进行标记"
+      	    android:textSize="25sp"
+      	    android:textColor="@color/red"
+      	    android:gravity="center_horizontal"
+      	    android:layout_margin="20dip"
+      	    android:layout_alignParentBottom="true"/>  
+</RelativeLayout>

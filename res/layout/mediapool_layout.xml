@@ -1,0 +1,92 @@
+<RelativeLayout
+    android:id="@+id/id_mediapool_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+   
+      <com.lansosdk.box.MediaPoolView
+            android:id="@+id/mediapool_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+      
+      <LinearLayout 
+          android:id="@+id/id_mediapool_saveplay"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/corners_btn_orange_bg"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="50dip"
+          android:orientation="vertical">
+          
+          <ImageView 
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:src="@drawable/play2"/>
+          <TextView 
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+            	android:text="查看实时保存画面"
+            android:layout_margin="5dip"
+              />
+      </LinearLayout>
+      	   
+    	<ScrollView 
+    	    android:layout_below="@id/mediapool_view"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content">
+    	
+	       <LinearLayout 
+	           android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/corners_btn_orange_bg"
+	           android:layout_alignParentBottom="true" android:layout_marginBottom="10dip" android:orientation="vertical" android:padding="5dip">
+			 	
+	           	 <!-- 旋转 -->
+				 	<LinearLayout  android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		              <TextView android:layout_width="0dip" android:layout_weight="2" android:layout_height="wrap_content" android:text="旋转"/>
+		                <SeekBar android:id="@+id/id_mediapool_skbar_rotate" android:layout_width="0dip" android:layout_weight="6" android:layout_height="wrap_content"
+					      android:layout_margin="5dip"/>
+		          	</LinearLayout>
+          		 <!-- 缩放 -->
+				 	<LinearLayout  android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		              <TextView android:layout_width="0dip" android:layout_weight="2" android:layout_height="wrap_content" android:text="缩放"/>
+		                <SeekBar android:id="@+id/id_mediapool_skbar_scale" android:layout_width="0dip" android:layout_weight="6" android:layout_height="wrap_content"
+					      android:layout_margin="5dip"/>
+		          	</LinearLayout>
+		      	<!-- 移动 -->
+				 	<LinearLayout  android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		              <TextView android:layout_width="0dip" android:layout_weight="2" android:layout_height="wrap_content" android:text="移动"/>
+		                <SeekBar android:id="@+id/id_mediapool_skbar_move" android:layout_width="0dip" android:layout_weight="6" android:layout_height="wrap_content"
+					      android:layout_margin="5dip"/>
+		          	</LinearLayout>
+				<!-- Red -->
+				 	<LinearLayout  android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		              <TextView android:layout_width="0dip" android:layout_weight="2" android:layout_height="wrap_content" android:text="RGBA红色调节"/>
+		                <SeekBar android:id="@+id/id_mediapool_skbar_red" android:layout_width="0dip" android:layout_weight="6" android:layout_height="wrap_content"
+					      android:layout_margin="5dip"/>
+		          	</LinearLayout>
+		          			
+				<!-- 绿色调节-->
+				 	<LinearLayout  android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		              <TextView android:layout_width="0dip" android:layout_weight="2" android:layout_height="wrap_content" android:text="RGBA绿色调节"/>
+		                <SeekBar android:id="@+id/id_mediapool_skbar_green" android:layout_width="0dip" android:layout_weight="6" android:layout_height="wrap_content"
+					      android:layout_margin="5dip"/>
+		          	</LinearLayout>
+       			<!-- 蓝色调节-->
+				 	<LinearLayout  android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		              <TextView android:layout_width="0dip" android:layout_weight="2" android:layout_height="wrap_content" android:text="RGBA蓝色调节"/>
+		                <SeekBar android:id="@+id/id_mediapool_skbar_blue" android:layout_width="0dip" android:layout_weight="6" android:layout_height="wrap_content"
+					      android:layout_margin="5dip"/>
+		          	</LinearLayout>
+		          	<!-- 透明调节-->
+				 	<LinearLayout  android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		              <TextView android:layout_width="0dip" android:layout_weight="2" android:layout_height="wrap_content" android:text="RGBA透明调节"/>
+		                <SeekBar android:id="@+id/id_mediapool_skbar_alpha" android:layout_width="0dip" android:layout_weight="6" android:layout_height="wrap_content"
+					      android:layout_margin="5dip"/>
+		          	</LinearLayout>
+             </LinearLayout>
+             </ScrollView>
+</RelativeLayout>

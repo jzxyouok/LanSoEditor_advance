@@ -1,0 +1,217 @@
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:layout_width="match_parent"
+     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFA500"
+    android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFA500"
+    android:orientation="vertical" >
+
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请选择视频文件"
+        android:textColor="#ff0000"
+        android:textStyle="bold"/>
+    
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    
+         <Button
+             android:id="@+id/id_main_use_default_videobtn"
+             android:layout_width="0dip"
+             android:layout_weight="5"
+             android:layout_height="60dip"
+             android:background="@drawable/rect_button_bg"
+             android:text="使用默认演示视频"
+             />
+         <ImageView
+             android:id="@+id/id_main_select_video"
+             android:layout_width="0dip"
+             android:layout_weight="2"
+             android:layout_height="60dip"
+             android:src="@drawable/ic_menu_archive"
+             />
+	</LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:id="@+id/id_main_tvvideo"/>
+    
+ 
+	
+      <RelativeLayout  android:id="@+id/id_main_demoedit" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="原生视频编辑" 	        style="@style/main_item_textview1"/>
+           	    <TextView android:text="裁剪/拼接/分离/合成等ffmpeg功能"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+    
+      <RelativeLayout  android:id="@+id/id_main_demofilter" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="视频滤镜" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="落日,复古等instragram效果"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+      
+          <RelativeLayout  android:id="@+id/id_main_demofiltersprite" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="MediaPool视频滤镜" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="在mediapool中的视频滤镜效果"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+      
+        <RelativeLayout  android:id="@+id/id_main_twovideooverlay" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="视频和视频的叠加" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="可做类似mv效果,动画贴纸等效果"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+       <RelativeLayout  android:id="@+id/id_main_videobitmapoverlay" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="视频和图片叠加" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="可做视频水印,标记,logo等效果"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+       
+        <RelativeLayout  android:id="@+id/id_main_viewspritedemo" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="视频和UI叠加" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="UI嵌入视频,涂鸦/动画/任意发挥"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	 <RelativeLayout  android:id="@+id/id_main_viewremark" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="视频标记" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="点击画面,标记箭头."		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+	
+            <RelativeLayout  android:id="@+id/id_main_pictures" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="图像影集" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="把图片合成影集, 花样呈现."		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+        
+	  <RelativeLayout  android:id="@+id/id_main_scaleexecute" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="后台视频缩放" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="手机拍摄的视频缩小,方便传输"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+	
+	<RelativeLayout  android:id="@+id/id_main_filterexecute" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="后台视频滤镜" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="UI交互操作后,后台统一处理滤镜"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	<RelativeLayout  android:id="@+id/id_main_mediapoolexecute" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="后台视频 MediaPool" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="UI交互操作后,后台统一处理叠加"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+		
+		<RelativeLayout  android:id="@+id/id_main_mediapoolpictureexecute" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="后台图片合成 MediaPool" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="UI交互操作后,后台统一处理叠加"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+		<RelativeLayout  android:id="@+id/id_main_testaudiomix" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="测试音频混合的例子" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="测试音频混合"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+			<RelativeLayout  android:id="@+id/id_main_testvideoplay" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="直接视频播放" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="直接视频播放"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
+	
+    <RelativeLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="150dip"
+	        android:gravity="center_vertical"
+	        android:background="#FFFFFF"
+	        android:layout_marginTop="20dip"
+	         >
+	         <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerVertical="true"
+		        android:layout_marginLeft="10dip"
+		        android:text="@string/sdk_hnit"
+		        android:textColor="#0000ff"/>
+	</RelativeLayout>
+
+</LinearLayout>
+</ScrollView>

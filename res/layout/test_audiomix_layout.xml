@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#009900">
+    
+ <TextView 
+        android:id="@+id/id_video_editor_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:textColor="@color/white"
+        android:text="注意:里面的文件路径是直接指定的, 需要先指定修改代码中的路径后(TestAudioMixManagerActivity.java), 才可以执行!!\n\n 以下是两种混合方式, 都可以工作,请选择一种即可,混合后,可以目标音频播放."
+        android:textSize="18sp"/>
+    
+    <Button 
+        android:id="@+id/id_test_audio_mix1"
+        android:layout_width="match_parent"
+        android:layout_margin="20dip"
+        android:layout_height="wrap_content"
+        android:text="PCM混合方式"
+        android:background="#FFFF00"
+        android:layout_centerInParent="true"/>
+
+     <Button 
+        android:id="@+id/id_test_audio_mix2"
+        android:layout_width="match_parent"
+        android:layout_margin="20dip"
+        android:layout_height="wrap_content"
+        android:text="直接混合方式"
+        android:background="#FFFF00"
+        android:layout_below="@id/id_test_audio_mix1"/>
+    
+   
+    
+    <Button 
+        android:id="@+id/id_test_audio_play"
+        android:layout_width="match_parent"
+        android:layout_margin="20dip"
+        android:layout_height="wrap_content"
+        android:text="目标音频播放"
+        android:background="#FFFF00"
+        android:layout_below="@id/id_test_audio_mix2"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

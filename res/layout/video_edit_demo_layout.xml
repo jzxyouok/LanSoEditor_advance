@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#009900">
+    
+    <com.example.lansongeditordemo.GLLinearLayout
+        android:id="@+id/id_edit_gl_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lanso测试文字"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"/>
+
+    </com.example.lansongeditordemo.GLLinearLayout>
+    
+    <Button 
+        android:id="@+id/id_video_edit_btn"
+        android:layout_width="match_parent"
+        android:layout_margin="20dip"
+        android:layout_height="wrap_content"
+        android:text="开始处理源视频"
+        android:background="#FFFF00"
+        android:layout_centerInParent="true"/>
+
+    
+    <TextView 
+        android:id="@+id/id_video_editor_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+    
+    <TextView  
+         android:id="@+id/id_video_edit_progress_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_below="@+id/id_video_edit_btn"
+        android:layout_marginTop="20dip"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/red"/>
+    
+    <Button 
+        android:id="@+id/id_video_edit_btn2"
+        android:layout_width="match_parent"
+        android:layout_margin="20dip"
+        android:layout_height="wrap_content"
+        android:text="目标视频浏览"
+        android:background="#FFFF00"
+        android:layout_below="@id/id_video_edit_progress_hint"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
