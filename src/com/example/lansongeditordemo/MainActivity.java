@@ -287,7 +287,7 @@ public class MainActivity extends Activity implements OnClickListener{
 				startExecuteDemo(VideoVideoExecuteActivity.class);
 				break;
 			case R.id.id_main_mediapoolpictureexecute:
-				startExecuteDemo(VideoPictureExecuteActivity.class);
+				startExecuteDemo(PictureSetExecuteActivity.class);
 				break;
 			case R.id.id_main_testaudiomix:
 				startExecuteDemo(TestAudioMixManagerActivity.class);

@@ -38,7 +38,7 @@ public class TestAudioMixManagerActivity extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				isPcmMix=true;
-				new SubAsyncTask().execute();
+				doTask();
 			}
 		});
 		findViewById(R.id.id_test_audio_mix2).setOnClickListener(new OnClickListener() {
@@ -47,7 +47,7 @@ public class TestAudioMixManagerActivity extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				isPcmMix=false;
-				new SubAsyncTask().execute();
+				doTask();
 			}
 		});
 		findViewById(R.id.id_test_audio_play).setOnClickListener(new OnClickListener() {
@@ -55,10 +55,18 @@ public class TestAudioMixManagerActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				playAudio();
+					playAudio();
 			}
 		});
 	  
+	}
+	private void doTask()
+	{
+		if(FileUtils.fileExist(videoPath) && FileUtils.fileExist("/sdcard/wuya.aac") && FileUtils.fileExist("/sdcard/hongdou10s.mp3")){
+	  		new SubAsyncTask().execute();
+		}else{
+			Toast.makeText(getApplicationContext(), "没找到音频文件", Toast.LENGTH_SHORT).show();
+		}
 	}
 	private MediaPlayer audioPlayer=null;
 	private void playAudio(){
@@ -101,8 +109,6 @@ public class TestAudioMixManagerActivity extends Activity{
 	private String pcmMix()
 	{
 		 String ret=null;
-		if(FileUtils.fileExist(videoPath) && FileUtils.fileExist("/sdcard/wuya.aac") && FileUtils.fileExist("/sdcard/hongdou10s.mp3"))
-		{
 				VideoEditor et=new VideoEditor();
 			      et.executeDeleteVideo("/sdcard/2x.mp4", "/sdcard/2x_audio.aac");
 			      AudioEncodeDecode.decodeAudio("/sdcard/2x_audio.aac", "/sdcard/2x_audio.pcm");
@@ -120,21 +126,16 @@ public class TestAudioMixManagerActivity extends Activity{
 			      ret=mixMng.executeAudioMix();
 			        
 			      mixMng.release();
-		}else{
-			Toast.makeText(getApplicationContext(), "没找到音频文件", Toast.LENGTH_SHORT).show();
-		}
+			
 		return ret;
 	}
 	private String audioMix()
 	{
-		if(FileUtils.fileExist("/sdcard/hongdou10s.mp3") && FileUtils.fileExist("/sdcard/wuya.aac"))
-		{
+	
 			VideoEditor mMediaEditor = new VideoEditor();
 			String ret="/sdcard/audio_amix.aac";
 			mMediaEditor.executeAudioMix("/sdcard/hongdou10s.mp3","/sdcard/wuya.aac",5000,5000,ret);
 			return ret;
-		}
-		return null;
 	}
 	ProgressDialog  mProgressDialog;
 	public class SubAsyncTask extends AsyncTask<Object, Object, Boolean>{

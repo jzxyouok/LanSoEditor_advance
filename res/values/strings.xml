@@ -14,15 +14,14 @@
 		<string name="video_editor_demo_hint">兼容完整的ffmpeg命令.这里仅举例画面裁剪的功能,来演示我们优化的ffmpeg硬件加速功能,更多可以在\n https://github.com/LanSoSdk/LanSoEditor_common \n这里下载,测试\n\n,
 	    功能流程: 解码得到画面--->把画面的高度裁剪一半-->保存为新的画面</string>
     
-	<string name="mediapoolexecute_demo_hint">此演示功能: MediaPoolExecute类使用\n\n 流程:打开视频播放,向里面增加两个图片,其中给一个图片移动位置,并在3秒处缩小一倍,在6秒处消失,
-	    处理完后的视频保存在/sdcard/mediapoolexecute_demo.mp4中</string>
+	<string name="mediapoolexecute_demo_hint">此功能演示:一个视频+两个图片+一个UI组合成新的视频\n\n 流程:打开视频播放,向里面增加两个图片和一个UI,其中给一个图片移动位置,并在3秒处缩小一倍,在6秒处消失,处理完后,实时的形成视频,可以用来预览和传输等</string>
     
 		
-		<string name="scaleexecute_demo_hint">此演示功能: ScaleExecute类使用\n\n 流程:打开视频播放,把视频画面等比例缩小一半,处理完后的视频保存在/sdcard/scaleexecute_demo.mp4中.
+		<string name="scaleexecute_demo_hint">此演示功能: ScaleExecute类使用\n\n 流程:打开视频播放,把视频画面等比例缩小一半,处理完后,实时的形成视频,可以用来预览和传输等.
 		    适用在用户自己用手机拍摄了高清的画面,需要缩放后再传输的场合.\n[注:显示等比例缩放了,处理也是等比例缩放,浏览播放时会看起来没有变化,可导出视频后查看效果]</string>
     
 		<string name="filterexecute_demo_hint">此演示功能: FilterExecute类使用\n\n 流程:打开视频播放,在视频中增加类似Instagram中的IF1977的滤镜效果,
-		    处理完后的视频保存在/sdcard/filterexecute_demo.mp4中.
+		    处理完后,实时的形成视频,可以用来预览和传输等.
 		</string>
     
 			
