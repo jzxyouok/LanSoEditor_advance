@@ -97,8 +97,8 @@ public class VideoRemarkActivity extends Activity{
 		});
         findViewById(R.id.id_mediapool_saveplay).setVisibility(View.GONE);
         
-        editTmpPath=FileUtils.createFile(SDKDir.TMP_DIR, ".mp4");
-        dstPath=SDKFileUtils.newFilePath(SDKDir.TMP_DIR, ".mp4");
+        editTmpPath=SDKFileUtils.newMp4PathInBox();
+        dstPath=SDKFileUtils.newMp4PathInBox();
         
     }
     @Override

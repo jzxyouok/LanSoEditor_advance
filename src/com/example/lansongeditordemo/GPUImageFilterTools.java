@@ -53,33 +53,33 @@ public class GPUImageFilterTools {
         final FilterList filters = new FilterList();
         
         //共44种滤镜.
-        filters.addFilter("Contrast", FilterType.CONTRAST);  //PASS
-        filters.addFilter("Invert", FilterType.INVERT);  //PASS
+        filters.addFilter("Contrast对比度", FilterType.CONTRAST);  //PASS
+        filters.addFilter("Invert负片", FilterType.INVERT);  //PASS
         
 //        filters.addFilter("Pixelation", FilterType.PIXELATION);   静止图片像素的大小.
-        filters.addFilter("Hue", FilterType.HUE);  //PASS
-        filters.addFilter("Gamma", FilterType.GAMMA);  //PASS
+        filters.addFilter("Hue色调", FilterType.HUE);  //PASS
+        filters.addFilter("Gamma伽玛", FilterType.GAMMA);  //PASS
         
-        filters.addFilter("Brightness", FilterType.BRIGHTNESS); //PASS
-        filters.addFilter("Sepia", FilterType.SEPIA); //PASS
-        filters.addFilter("Grayscale", FilterType.GRAYSCALE);  //PASS
+        filters.addFilter("Brightness图像亮度", FilterType.BRIGHTNESS); //PASS
+        filters.addFilter("Sepia复古", FilterType.SEPIA); //PASS
+        filters.addFilter("Grayscale灰度", FilterType.GRAYSCALE);  //PASS
         
         
-        filters.addFilter("Posterize", FilterType.POSTERIZE);  //PASS
-        filters.addFilter("Saturation", FilterType.SATURATION); //PASS
+        filters.addFilter("Posterize色调分离", FilterType.POSTERIZE);  //PASS
+        filters.addFilter("Saturation饱和度", FilterType.SATURATION); //PASS
         
-        filters.addFilter("Exposure", FilterType.EXPOSURE);  //PASS
+        filters.addFilter("Exposure曝光度", FilterType.EXPOSURE);  //PASS
         
-        filters.addFilter("Highlight Shadow", FilterType.HIGHLIGHT_SHADOW);  //PASS
-        filters.addFilter("Monochrome", FilterType.MONOCHROME); //PASS
+        filters.addFilter("Highlight Shadow阴影高亮", FilterType.HIGHLIGHT_SHADOW);  //PASS
+        filters.addFilter("Monochrome单色", FilterType.MONOCHROME); //PASS
         
-        filters.addFilter("Opacity", FilterType.OPACITY);    //PASS 设置视频的透明度,一般不需要.
-        filters.addFilter("RGB", FilterType.RGB);  //PASS
+        filters.addFilter("Opacity透明度", FilterType.OPACITY);    //PASS 设置视频的透明度,一般不需要.
+        filters.addFilter("RGB颜色调整", FilterType.RGB);  //PASS
         
-        filters.addFilter("White Balance", FilterType.WHITE_BALANCE);  //PASS
+        filters.addFilter("White Balance白平衡", FilterType.WHITE_BALANCE);  //PASS
         
-        filters.addFilter("Vignette", FilterType.VIGNETTE);  //PASS
-        filters.addFilter("ToneCurve", FilterType.TONE_CURVE);  //PASS 色调曲线
+        filters.addFilter("Vignette加轮廓", FilterType.VIGNETTE);  //PASS
+        filters.addFilter("ToneCurve色调曲线", FilterType.TONE_CURVE);  //PASS 色调曲线
 
 //        filters.addFilter("Blend (Difference)", FilterType.BLEND_DIFFERENCE);
 //        filters.addFilter("Blend (Source Over)", FilterType.BLEND_SOURCE_OVER);
@@ -107,7 +107,7 @@ public class GPUImageFilterTools {
 //        filters.addFilter("Blend (Normal)", FilterType.BLEND_NORMAL);
 
 //        filters.addFilter("Lookup (Amatorka)", FilterType.LOOKUP_AMATORKA);
-        filters.addFilter("Crosshatch", FilterType.CROSSHATCH);  //PASS
+        filters.addFilter("Crosshatch网格", FilterType.CROSSHATCH);  //PASS
 
         filters.addFilter("CGA Color Space", FilterType.CGA_COLORSPACE);  //PASS
         filters.addFilter("Kuwahara", FilterType.KUWAHARA);  //PASS

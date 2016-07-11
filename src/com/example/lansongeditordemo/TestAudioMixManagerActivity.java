@@ -17,6 +17,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 public class TestAudioMixManagerActivity extends Activity{
 
@@ -119,6 +120,8 @@ public class TestAudioMixManagerActivity extends Activity{
 			      ret=mixMng.executeAudioMix();
 			        
 			      mixMng.release();
+		}else{
+			Toast.makeText(getApplicationContext(), "没找到音频文件", Toast.LENGTH_SHORT).show();
 		}
 		return ret;
 	}

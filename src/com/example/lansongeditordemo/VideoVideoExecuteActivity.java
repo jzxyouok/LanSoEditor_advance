@@ -32,6 +32,7 @@ import com.lansosdk.box.onScaleProgressListener;
 import com.lansosdk.videoeditor.LanSoEditor;
 import com.lansosdk.videoeditor.MediaInfo;
 import com.lansosdk.videoeditor.SDKDir;
+import com.lansosdk.videoeditor.SDKFileUtils;
 import com.lansosdk.videoeditor.VideoEditor;
 import com.lansosdk.videoeditor.onVideoEditorProgressListener;
 import com.lansosdk.videoeditor.utils.FileUtils;
@@ -102,12 +103,8 @@ public class VideoVideoExecuteActivity extends Activity{
        
        mGLLinearLayout=(GLLinearLayout)findViewById(R.id.id_edit_gl_layout);
        
-       if(FileUtils.fileExist(dstPath)){
-    	   FileUtils.deleteFile(dstPath);
-       }
-       if(FileUtils.fileExist(editTmpPath)){
-    	   FileUtils.deleteFile(editTmpPath);
-       } 
+       editTmpPath=SDKFileUtils.newMp4PathInBox();
+       dstPath=SDKFileUtils.newMp4PathInBox();
        
 	}
    @Override
@@ -119,6 +116,12 @@ public class VideoVideoExecuteActivity extends Activity{
     		vMediaPool.release();
     		vMediaPool=null;
     	}
+    	if(FileUtils.fileExist(dstPath)){
+     	   FileUtils.deleteFile(dstPath);
+        }
+        if(FileUtils.fileExist(editTmpPath)){
+     	   FileUtils.deleteFile(editTmpPath);
+        } 
     }
 	   
 	VideoEditor mVideoEditer;
