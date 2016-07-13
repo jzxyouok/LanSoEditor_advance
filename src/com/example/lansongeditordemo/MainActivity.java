@@ -99,8 +99,6 @@ public class MainActivity extends Activity implements OnClickListener{
         findViewById(R.id.id_main_demofilter).setOnClickListener(this);
         findViewById(R.id.id_main_demofiltersprite).setOnClickListener(this);
         
-        
-        
         findViewById(R.id.id_main_demoedit).setOnClickListener(this);
         
         findViewById(R.id.id_main_twovideooverlay).setOnClickListener(this);
