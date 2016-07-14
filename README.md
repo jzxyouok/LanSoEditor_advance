@@ -1,7 +1,7 @@
 # LanSoEditor_advance
 android  video editor  advance sdk . filter, overlay,remark,mixer and so on安卓平台视频编辑高级版本，可以滤镜，叠加，标记等操作
 
-###当前版本是LanSoEditor_advance1.6 视频编辑的高级版本
+###当前版本是LanSoEditor_advance1.6.2 视频编辑的高级版本
 *  基本覆盖了秒拍,美拍,快手等视频编辑的大部分功能.
 *  增加了44种滤镜,基本覆盖市面上大部分APP中的滤镜效果.
 *  可以实现视频和视频, 视频和图片,视频和您的UI界面叠加.
