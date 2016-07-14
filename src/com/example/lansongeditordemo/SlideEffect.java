@@ -1,5 +1,7 @@
 package com.example.lansongeditordemo;
 
+import android.util.Log;
+
 import com.lansosdk.box.ISprite;
 
 public class SlideEffect {
@@ -62,6 +64,8 @@ public class SlideEffect {
 		if(currentTimeMS >=endSecond){
 			currentX+=stepPerFrame;
 		}
+//		Log.i("sno","current:"+currentX+" y "+currentY);
+		
 		mSprite.setPosition(currentX, currentY);
 		
 	}	

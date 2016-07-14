@@ -46,6 +46,8 @@ import org.insta.IFValenciaFilter;
 import org.insta.IFWaldenFilter;
 import org.insta.IFXproIIFilter;
 
+import com.lansoeditor.demo.R;
+
 
 public class GPUImageFilterTools {
     public static void showDialog(final Context context,

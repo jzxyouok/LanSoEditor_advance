@@ -7,13 +7,13 @@ import java.util.Locale;
 import jp.co.cyberagent.android.gpuimage.GPUImageFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageSepiaFilter;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.AudioEncodeDecode;
 import com.lansosdk.box.MediaPoolUpdateMode;
 import com.lansosdk.box.AudioMixManager;
 import com.lansosdk.box.VideoSprite;
 import com.lansosdk.box.ViewSprite;
 import com.lansosdk.box.ISprite;
-import com.lansosdk.box.MediaPoolView;
 import com.lansosdk.box.onMediaPoolSizeChangedListener;
 import com.lansosdk.videoeditor.MediaInfo;
 import com.lansosdk.videoeditor.MediaSource;
@@ -51,7 +51,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
+/**
+ * 演示: 利用MediaPool视频和视频的实时叠加.
+ *
+ */
 public class VideoVideoRealTimeActivity extends Activity implements OnSeekBarChangeListener {
     private static final String TAG = "VideoActivity";
 
@@ -75,9 +78,6 @@ public class VideoVideoRealTimeActivity extends Activity implements OnSeekBarCha
     private String editTmpPath=null;
     private String dstPath=null;
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onCreate(android.os.Bundle)
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
@@ -98,8 +98,6 @@ public class VideoVideoRealTimeActivity extends Activity implements OnSeekBarCha
         initSeekBar(R.id.id_mediapool_skbar_blue,100);
         initSeekBar(R.id.id_mediapool_skbar_alpha,100);
         
-        
-   
         
         findViewById(R.id.id_mediapool_saveplay).setOnClickListener(new OnClickListener() {
 			
@@ -192,16 +190,24 @@ public class VideoVideoRealTimeActivity extends Activity implements OnSeekBarCha
     	MediaInfo info=new MediaInfo(mVideoPath,false);
     	info.prepare();
 		
+    	// 设置MediaPool的刷新模式,默认 {@link MediaPool.UpdateMode#ALL_VIDEO_READY};
     	mPlayView.setUpdateMode(MediaPoolUpdateMode.ALL_VIDEO_READY,25);
     	
-    	mPlayView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
+    	if(DemoCfg.ENCODE){
+    		//设置使能 实时录制, 即把正在MediaPool中呈现的画面实时的保存下来,起到所见即所得的模式
+    		mPlayView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
+    	}
+    	//设置当前MediaPool的宽度和高度,并把宽度自动缩放到父view的宽度,然后等比例调整高度.
     	mPlayView.setMediaPoolSize(480,480,new onMediaPoolSizeChangedListener() {
 			
 			@Override
 			public void onSizeChanged(int viewWidth, int viewHeight) {
 				// TODO Auto-generated method stub
+				
+				// 开始mediaPool的渲染线程. 
 				mPlayView.startMediaPool(null,null);
 				
+				//获取一个主视频的 VideoSprite
 				mSpriteMain=mPlayView.obtainMainVideoSprite(mplayer.getVideoWidth(),mplayer.getVideoHeight());
 				if(mSpriteMain!=null){
 					mplayer.setSurface(new Surface(mSpriteMain.getVideoTexture()));
@@ -227,6 +233,7 @@ public class VideoVideoRealTimeActivity extends Activity implements OnSeekBarCha
 			public void onPrepared(MediaPlayer mp) {
 				// TODO Auto-generated method stub
 				
+				// 获取一个VideoSprite
 				subVideoSprite=mPlayView.obtainSubVideoSprite(mp.getVideoWidth(),mp.getVideoHeight());
 				if(subVideoSprite!=null){
 					mplayer2.setSurface(new Surface(subVideoSprite.getVideoTexture()));	

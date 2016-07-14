@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.videoeditor.MediaInfo;
 
 import android.app.ListActivity;

@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.BitmapSprite;
 import com.lansosdk.box.FilterExecute;
 import com.lansosdk.box.ScaleExecute;
@@ -27,6 +28,12 @@ import com.lansosdk.videoeditor.VideoEditor;
 import com.lansosdk.videoeditor.utils.FileUtils;
 import com.lansosdk.videoeditor.utils.snoCrashHandler;
 
+/**
+ * 此演示功能:在后台单独处理视频滤镜.适用在当不需要UI界面做滤镜预览的场合.比如不经过滤镜预览或没有预览完毕,就可以做视频滤镜处理,这样的场合使用!
+ * 
+ * 演示流程是: 直接调用FilterExecute来对视频做滤镜处理,可以在滤镜过程中,实时的保存.
+ *
+ */
 public class FilterExecuteActivity extends Activity{
 
 	String videoPath=null;
@@ -39,7 +46,7 @@ public class FilterExecuteActivity extends Activity{
 	private String dstPath=null;
 	 TextView tvHint;
 	 
-	private static final String TAG="MediaPoolExecuteActivity";
+	private static final String TAG="FilterExecuteActivity";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

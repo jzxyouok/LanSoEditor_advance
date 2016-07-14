@@ -1,7 +1,7 @@
 package org.insta;
 
 
-import com.example.lansongeditordemo.R;
+import com.lansoeditor.demo.R;
 
 import android.content.Context;
 

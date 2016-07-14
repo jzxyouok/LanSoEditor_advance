@@ -1,5 +1,6 @@
 package com.example.lansongeditordemo;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.videoeditor.MediaInfo;
 
 import android.app.Activity;

@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.lansongeditordemo;
+package com.lansoeditor.demo;
 
 public final class R {
     public static final class attr {
@@ -623,71 +623,71 @@ R35 B50,G71
         public static final int xpro_map=0x7f020052;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0040;
-        public static final int id_edit_gl_layout=0x7f0a0039;
-        public static final int id_filter_saveplay=0x7f0a0016;
-        public static final int id_filtersprite_demo_seek1=0x7f0a001d;
-        public static final int id_filtersprite_demo_selectbtn=0x7f0a001c;
-        public static final int id_filtersprite_demo_view=0x7f0a001a;
-        public static final int id_filtersprite_saveplay=0x7f0a001b;
-        public static final int id_main_demoedit=0x7f0a0003;
-        public static final int id_main_demofilter=0x7f0a0004;
-        public static final int id_main_demofiltersprite=0x7f0a0005;
-        public static final int id_main_filterexecute=0x7f0a000c;
-        public static final int id_main_mediapoolexecute=0x7f0a000d;
-        public static final int id_main_mediapoolpictureexecute=0x7f0a000e;
-        public static final int id_main_pictures=0x7f0a000a;
-        public static final int id_main_scaleexecute=0x7f0a000b;
-        public static final int id_main_select_video=0x7f0a0001;
-        public static final int id_main_testaudiomix=0x7f0a000f;
-        public static final int id_main_testvideoplay=0x7f0a0010;
-        public static final int id_main_tvvideo=0x7f0a0002;
-        public static final int id_main_twovideooverlay=0x7f0a0006;
-        public static final int id_main_use_default_videobtn=0x7f0a0000;
-        public static final int id_main_videobitmapoverlay=0x7f0a0007;
-        public static final int id_main_viewremark=0x7f0a0009;
-        public static final int id_main_viewspritedemo=0x7f0a0008;
-        public static final int id_mediapool_hint_1=0x7f0a001e;
-        public static final int id_mediapool_hint_btn=0x7f0a0022;
-        public static final int id_mediapool_hint_only=0x7f0a0020;
-        public static final int id_mediapool_layout=0x7f0a0023;
-        public static final int id_mediapool_saveplay=0x7f0a0025;
-        public static final int id_mediapool_skbar_alpha=0x7f0a002c;
-        public static final int id_mediapool_skbar_blue=0x7f0a002b;
-        public static final int id_mediapool_skbar_green=0x7f0a002a;
-        public static final int id_mediapool_skbar_move=0x7f0a0028;
-        public static final int id_mediapool_skbar_red=0x7f0a0029;
-        public static final int id_mediapool_skbar_rotate=0x7f0a0026;
-        public static final int id_mediapool_skbar_scale=0x7f0a0027;
-        public static final int id_mediapool_tv_count=0x7f0a0021;
-        public static final int id_palyer_screenhinit=0x7f0a002e;
-        public static final int id_palyer_videoRatio=0x7f0a002f;
-        public static final int id_palyer_videoduration=0x7f0a0030;
-        public static final int id_palyer_videosizehint=0x7f0a0031;
-        public static final int id_player_btnselectfilter=0x7f0a0018;
-        public static final int id_player_control_linear2=0x7f0a0017;
-        public static final int id_player_seekbar1=0x7f0a0019;
-        public static final int id_test_audio_mix1=0x7f0a0033;
-        public static final int id_test_audio_mix2=0x7f0a0034;
-        public static final int id_test_audio_play=0x7f0a0035;
-        public static final int id_test_video_function_hint=0x7f0a0036;
-        public static final int id_two_player_demo_view1=0x7f0a0037;
-        public static final int id_two_player_demo_view2=0x7f0a0038;
-        public static final int id_video_edit_btn=0x7f0a003a;
-        public static final int id_video_edit_btn2=0x7f0a003c;
-        public static final int id_video_edit_progress_hint=0x7f0a003b;
-        public static final int id_video_editor_hint=0x7f0a0032;
-        public static final int id_vview_realtime_gllayout=0x7f0a003d;
-        public static final int id_vview_realtime_mediapool_view=0x7f0a003e;
-        public static final int id_vview_realtime_saveplay=0x7f0a003f;
-        public static final int imageview_rowicon=0x7f0a0012;
-        public static final int linearlayout_row=0x7f0a0011;
-        public static final int mediapool_hint_centor=0x7f0a001f;
-        public static final int mediapool_view=0x7f0a0024;
-        public static final int surface1=0x7f0a002d;
-        public static final int textview_path=0x7f0a0014;
-        public static final int textview_rowtext=0x7f0a0013;
-        public static final int video_view=0x7f0a0015;
+        public static final int id_edit_gl_layout=0x7f09003a;
+        public static final int id_filter_saveplay=0x7f090017;
+        public static final int id_filtersprite_demo_seek1=0x7f09001e;
+        public static final int id_filtersprite_demo_selectbtn=0x7f09001d;
+        public static final int id_filtersprite_demo_view=0x7f09001b;
+        public static final int id_filtersprite_saveplay=0x7f09001c;
+        public static final int id_main_demoedit=0x7f090003;
+        public static final int id_main_demofilter=0x7f090004;
+        public static final int id_main_demofiltersprite=0x7f090005;
+        public static final int id_main_filterexecute=0x7f09000c;
+        public static final int id_main_mediapoolexecute=0x7f09000d;
+        public static final int id_main_mediapoolexecute_filter=0x7f09000e;
+        public static final int id_main_mediapoolpictureexecute=0x7f09000f;
+        public static final int id_main_pictures=0x7f09000a;
+        public static final int id_main_scaleexecute=0x7f09000b;
+        public static final int id_main_select_video=0x7f090001;
+        public static final int id_main_testaudiomix=0x7f090010;
+        public static final int id_main_testvideoplay=0x7f090011;
+        public static final int id_main_tvvideo=0x7f090002;
+        public static final int id_main_twovideooverlay=0x7f090006;
+        public static final int id_main_use_default_videobtn=0x7f090000;
+        public static final int id_main_videobitmapoverlay=0x7f090007;
+        public static final int id_main_viewremark=0x7f090009;
+        public static final int id_main_viewspritedemo=0x7f090008;
+        public static final int id_mediapool_hint_1=0x7f09001f;
+        public static final int id_mediapool_hint_btn=0x7f090023;
+        public static final int id_mediapool_hint_only=0x7f090021;
+        public static final int id_mediapool_layout=0x7f090024;
+        public static final int id_mediapool_saveplay=0x7f090026;
+        public static final int id_mediapool_skbar_alpha=0x7f09002d;
+        public static final int id_mediapool_skbar_blue=0x7f09002c;
+        public static final int id_mediapool_skbar_green=0x7f09002b;
+        public static final int id_mediapool_skbar_move=0x7f090029;
+        public static final int id_mediapool_skbar_red=0x7f09002a;
+        public static final int id_mediapool_skbar_rotate=0x7f090027;
+        public static final int id_mediapool_skbar_scale=0x7f090028;
+        public static final int id_mediapool_tv_count=0x7f090022;
+        public static final int id_palyer_screenhinit=0x7f09002f;
+        public static final int id_palyer_videoRatio=0x7f090030;
+        public static final int id_palyer_videoduration=0x7f090031;
+        public static final int id_palyer_videosizehint=0x7f090032;
+        public static final int id_player_btnselectfilter=0x7f090019;
+        public static final int id_player_control_linear2=0x7f090018;
+        public static final int id_player_seekbar1=0x7f09001a;
+        public static final int id_test_audio_mix1=0x7f090034;
+        public static final int id_test_audio_mix2=0x7f090035;
+        public static final int id_test_audio_play=0x7f090036;
+        public static final int id_test_video_function_hint=0x7f090037;
+        public static final int id_two_player_demo_view1=0x7f090038;
+        public static final int id_two_player_demo_view2=0x7f090039;
+        public static final int id_video_edit_btn=0x7f09003b;
+        public static final int id_video_edit_btn2=0x7f09003d;
+        public static final int id_video_edit_progress_hint=0x7f09003c;
+        public static final int id_video_editor_hint=0x7f090033;
+        public static final int id_vview_realtime_gllayout=0x7f09003e;
+        public static final int id_vview_realtime_mediapool_view=0x7f09003f;
+        public static final int id_vview_realtime_saveplay=0x7f090040;
+        public static final int imageview_rowicon=0x7f090013;
+        public static final int linearlayout_row=0x7f090012;
+        public static final int mediapool_hint_centor=0x7f090020;
+        public static final int mediapool_view=0x7f090025;
+        public static final int surface1=0x7f09002e;
+        public static final int textview_path=0x7f090015;
+        public static final int textview_rowtext=0x7f090014;
+        public static final int video_view=0x7f090016;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -706,37 +706,32 @@ R35 B50,G71
         public static final int video_edit_demo_layout=0x7f03000d;
         public static final int video_view_realtime_layout=0x7f03000e;
     }
-    public static final class menu {
-        public static final int main=0x7f090000;
-    }
     public static final class raw {
         public static final int sunrise=0x7f040000;
         public static final int tone_cuver_sample=0x7f040001;
     }
     public static final class string {
-        public static final int action_settings=0x7f070002;
         public static final int app_name=0x7f070000;
-        public static final int canvas=0x7f070011;
-        public static final int colorblock=0x7f07000f;
-        public static final int filterexecute_demo_hint=0x7f07000a;
-        public static final int fix_width=0x7f070016;
-        public static final int hello_world=0x7f070001;
-        public static final int here_is_only_demo=0x7f070014;
-        public static final int line=0x7f070010;
-        public static final int mediapool_hint=0x7f07000c;
-        public static final int mediapoolexecute_demo_hint=0x7f070008;
-        public static final int message_denied=0x7f070004;
-        public static final int message_granted=0x7f070003;
-        public static final int origal_width=0x7f070015;
-        public static final int picture=0x7f07000e;
-        public static final int scaleexecute_demo_hint=0x7f070009;
-        public static final int sdk_hnit=0x7f07000b;
-        public static final int sdk_limit=0x7f070005;
-        public static final int select_video=0x7f070006;
-        public static final int sound=0x7f070013;
-        public static final int video=0x7f07000d;
-        public static final int video_editor_demo_hint=0x7f070007;
-        public static final int word=0x7f070012;
+        public static final int canvas=0x7f07000f;
+        public static final int colorblock=0x7f07000d;
+        public static final int filterexecute_demo_hint=0x7f070008;
+        public static final int fix_width=0x7f070014;
+        public static final int here_is_only_demo=0x7f070012;
+        public static final int line=0x7f07000e;
+        public static final int mediapool_hint=0x7f07000a;
+        public static final int mediapoolexecute_demo_hint=0x7f070006;
+        public static final int message_denied=0x7f070002;
+        public static final int message_granted=0x7f070001;
+        public static final int origal_width=0x7f070013;
+        public static final int picture=0x7f07000c;
+        public static final int scaleexecute_demo_hint=0x7f070007;
+        public static final int sdk_hnit=0x7f070009;
+        public static final int sdk_limit=0x7f070003;
+        public static final int select_video=0x7f070004;
+        public static final int sound=0x7f070011;
+        public static final int video=0x7f07000b;
+        public static final int video_editor_demo_hint=0x7f070005;
+        public static final int word=0x7f070010;
     }
     public static final class style {
         /** 

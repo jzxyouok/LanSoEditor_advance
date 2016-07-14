@@ -17,9 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lansongeditordemo.VideoEditDemoActivity.SubAsyncTask;
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.BitmapSprite;
 import com.lansosdk.box.MediaPool;
 import com.lansosdk.box.MediaPoolVideoExecute;
+import com.lansosdk.box.VideoSprite;
 import com.lansosdk.box.ViewSprite;
 import com.lansosdk.box.FilterExecute;
 import com.lansosdk.box.ScaleExecute;
@@ -38,6 +40,12 @@ import com.lansosdk.videoeditor.onVideoEditorProgressListener;
 import com.lansosdk.videoeditor.utils.FileUtils;
 import com.lansosdk.videoeditor.utils.snoCrashHandler;
 
+/**
+ * 演示: 使用MediaPool在后台执行视频和视频的叠加处理.
+ * 
+ * 适用在 一些UI界面需要用户手动操作UI界面,比如旋转叠加的视频等,增加图片后旋转图片等,这些UI交互完成后, 记录下用户的操作信息,但需要统一处理时,通过此类来在后台执行.
+ *
+ */
 public class VideoVideoExecuteActivity extends Activity{
 
 	String videoPath=null;
@@ -78,7 +86,7 @@ public class VideoVideoExecuteActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				
-				if(mMediaInfo.vDuration>60*1000){//大于60秒
+				if(mMediaInfo.vDuration>=60*1000){//大于60秒
 					showHintDialog();
 				}else{
 					testMediaPoolExecute();
@@ -105,7 +113,6 @@ public class VideoVideoExecuteActivity extends Activity{
        
        editTmpPath=SDKFileUtils.newMp4PathInBox();
        dstPath=SDKFileUtils.newMp4PathInBox();
-       
 	}
    @Override
     protected void onDestroy() {
@@ -116,12 +123,12 @@ public class VideoVideoExecuteActivity extends Activity{
     		vMediaPool.release();
     		vMediaPool=null;
     	}
-    	if(FileUtils.fileExist(dstPath)){
-     	   FileUtils.deleteFile(dstPath);
-        }
-        if(FileUtils.fileExist(editTmpPath)){
-     	   FileUtils.deleteFile(editTmpPath);
-        } 
+    	   if(FileUtils.fileExist(dstPath)){
+        	   FileUtils.deleteFile(dstPath);
+           }
+           if(FileUtils.fileExist(editTmpPath)){
+        	   FileUtils.deleteFile(editTmpPath);
+           } 
     }
 	   
 	VideoEditor mVideoEditer;
@@ -152,8 +159,10 @@ public class VideoVideoExecuteActivity extends Activity{
 			return ;
 		
 		isExecuting=true;
-		 vMediaPool=new MediaPoolVideoExecute(VideoVideoExecuteActivity.this,videoPath,480,480,1000000,editTmpPath);
+		//创建在后台调用MediaPool来处理视频的构造方法.
+		 vMediaPool=new MediaPoolVideoExecute(VideoVideoExecuteActivity.this,videoPath,480,480,25,1000000,editTmpPath);
 		
+		 //设置处理中的进度.
 		vMediaPool.setMediaPoolProgessListener(new onMediaPoolProgressListener() {
 			
 			@Override
@@ -170,6 +179,7 @@ public class VideoVideoExecuteActivity extends Activity{
 					bitmapSprite.setScale(50);
 			}
 		});
+		//处理完成后的回调.
 		vMediaPool.setMediaPoolCompletedListener(new onMediaPoolCompletedListener() {
 			
 			@Override
@@ -186,7 +196,11 @@ public class VideoVideoExecuteActivity extends Activity{
 			}
 		});
 		vMediaPool.start();
-	
+		
+		//一下是在处理过程中, 增加的几个sprite, 来实现视频在播放过程中叠加别的一些媒体, 像图片, 文字等.
+		VideoSprite sprite=vMediaPool.obtainVideoSprite("/sdcard/2x.mp4",672,378);
+		sprite.setScale(30);
+		
 		bitmapSprite=vMediaPool.obtainBitmapSprite(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
 		
 		bitmapSprite.setPosition(300, 200);

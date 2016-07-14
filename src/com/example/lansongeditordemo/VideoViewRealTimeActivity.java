@@ -5,9 +5,9 @@ import java.util.Locale;
 
 import jp.co.cyberagent.android.gpuimage.GPUImageFilter;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.ViewSprite;
 import com.lansosdk.box.ISprite;
-import com.lansosdk.box.MediaPoolView;
 import com.lansosdk.box.onMediaPoolSizeChangedListener;
 import com.lansosdk.videoeditor.MediaInfo;
 import com.lansosdk.videoeditor.MediaSource;
@@ -40,7 +40,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
+/**
+ *  演示: 视频和UI界面的 实时叠加.
+ *  
+ *  mGLRelativeLayout是要叠加的UI界面.
+ *
+ */
 public class VideoViewRealTimeActivity extends Activity implements OnSeekBarChangeListener {
     private static final String TAG = "VideoActivity";
 
@@ -175,8 +180,10 @@ public class VideoViewRealTimeActivity extends Activity implements OnSeekBarChan
     {
     	MediaInfo info=new MediaInfo(mVideoPath,false);
     	info.prepare();
-    	mPlayView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
     	
+    	if(DemoCfg.ENCODE){
+    		mPlayView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
+    	}
     	mPlayView.setMediaPoolSize(480,480,new onMediaPoolSizeChangedListener() {
 			
 			@Override

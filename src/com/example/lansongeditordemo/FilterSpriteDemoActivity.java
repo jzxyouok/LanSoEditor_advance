@@ -9,6 +9,7 @@ import jp.co.cyberagent.android.gpuimage.GPUImageSepiaFilter;
 
 import com.example.lansongeditordemo.GPUImageFilterTools.FilterAdjuster;
 import com.example.lansongeditordemo.GPUImageFilterTools.OnGpuImageFilterChosenListener;
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.AudioEncodeDecode;
 import com.lansosdk.box.FilterSprite;
 import com.lansosdk.box.MediaPool;
@@ -17,7 +18,6 @@ import com.lansosdk.box.AudioMixManager;
 import com.lansosdk.box.VideoSprite;
 import com.lansosdk.box.ViewSprite;
 import com.lansosdk.box.ISprite;
-import com.lansosdk.box.MediaPoolView;
 import com.lansosdk.box.onMediaPoolCompletedListener;
 import com.lansosdk.box.onMediaPoolProgressListener;
 import com.lansosdk.box.onMediaPoolSizeChangedListener;
@@ -57,8 +57,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
-public class FilterSpriteDemoActivity extends Activity implements OnSeekBarChangeListener {
+/**
+ * 演示滤镜模块的 FilterSprite的使用, 可以在播放过程中切换滤镜, 在滤镜处理过程中, 增加其他的sprite,比如增加一个BitmapSprite和 ViewSprite等等.
+ * 
+ * 代码流程: 从layout中得到MediaPoolView,并从MediaPoolView中获取多个sprite,并对sprite进行滤镜, 缩放等操作.
+ *
+ *
+ */
+public class FilterSpriteDemoActivity extends Activity {
     private static final String TAG = "VideoActivity";
 
     private String mVideoPath;
@@ -155,15 +161,21 @@ public class FilterSpriteDemoActivity extends Activity implements OnSeekBarChang
 		}, 100);
     }
     private FilterAdjuster mFilterAdjuster;
+    /**
+     * 选择滤镜效果, 当前SDK支持44中滤镜.
+     */
     private void selectFilter()
     {
     	GPUImageFilterTools.showDialog(this, new OnGpuImageFilterChosenListener() {
 
             @Override
             public void onGpuImageFilterChosenListener(final GPUImageFilter filter) {
+            	
+            	//在这里通过MediaPool线程去切换 filterSprite的滤镜
 	         	   if(mMediaPoolView.switchFilterTo(filterSprite,filter)){
 	         		   mFilterAdjuster = new FilterAdjuster(filter);
 	
+	         		   //如果这个滤镜 可调, 显示可调节进度条.
 	         		    findViewById(R.id.id_filtersprite_demo_seek1).setVisibility(
 	         		            mFilterAdjuster.canAdjust() ? View.VISIBLE : View.GONE);
 	         	   }
@@ -214,7 +226,11 @@ public class FilterSpriteDemoActivity extends Activity implements OnSeekBarChang
 		
     	mMediaPoolView.setUpdateMode(MediaPoolUpdateMode.ALL_VIDEO_READY,25);
     	
-    	mMediaPoolView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
+    	if(DemoCfg.ENCODE){
+    		mMediaPoolView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
+    	}
+    	
+    	//设置当前MediaPool的宽度和高度,并把宽度自动缩放到父view的宽度,然后等比例调整高度.
     	mMediaPoolView.setMediaPoolSize(480,480,new onMediaPoolSizeChangedListener() {
 			
 			@Override
@@ -230,6 +246,7 @@ public class FilterSpriteDemoActivity extends Activity implements OnSeekBarChang
 			}
 		});
     }
+    //MediaPool完成后的回调.
     private class MediaPoolCompleted implements onMediaPoolCompletedListener
     {
 
@@ -247,6 +264,7 @@ public class FilterSpriteDemoActivity extends Activity implements OnSeekBarChang
 			toastStop();
 		}
     }
+    //MediaPool进度回调.每一帧都返回一个回调.
     private class MediaPoolProgressListener implements onMediaPoolProgressListener
     {
 
@@ -284,45 +302,5 @@ protected void onDestroy() {
      	FileUtils.deleteFile(editTmpPath);
      } 
 }
-    private float xpos=0,ypos=0;
-	@Override
-	public void onProgressChanged(SeekBar seekBar, int progress,
-			boolean fromUser) {
-		// TODO Auto-generated method stub
-//		if(seekBar==skbarRotate){
-//			if(subVideoSprite!=null){
-//				subVideoSprite.setRotate(progress);
-////				subVideoSprite.setRedPercent(progress);
-////				subVideoSprite.setGreenPercent(progress);
-////				subVideoSprite.setBluePercent(progress);
-//			}
-//		}
-//		if(seekBar==skbarMove){
-//			if(subVideoSprite!=null){
-//				 xpos+=10;
-//				 ypos+=10;
-//				 
-//				 if(xpos>mPlayView.getViewWidth())
-//					 xpos=0;
-//				 if(ypos>mPlayView.getViewWidth())
-//					 ypos=0;
-//				 subVideoSprite.setPosition(xpos, ypos);
-//			}
-//		}
-//		if(seekBar==skbarScale){
-//			if(subVideoSprite!=null){
-//				subVideoSprite.setScale(progress);
-//			}
-//		}
-	}
-	@Override
-	public void onStartTrackingTouch(SeekBar seekBar) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onStopTrackingTouch(SeekBar seekBar) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

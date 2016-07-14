@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import com.anthonycr.grant.PermissionsManager;
 import com.anthonycr.grant.PermissionsResultAction;
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.AudioEncodeDecode;
 import com.lansosdk.box.AudioSprite;
 import com.lansosdk.videoeditor.CopyFileFromAssets;
@@ -84,7 +85,7 @@ public class MainActivity extends Activity implements OnClickListener{
         });
        
         
-        DisplayMetrics dm = new DisplayMetrics();// 获取屏幕密度（方法2）
+        DisplayMetrics dm = new DisplayMetrics();
         dm = getResources().getDisplayMetrics();
         
            
@@ -98,6 +99,8 @@ public class MainActivity extends Activity implements OnClickListener{
         
         findViewById(R.id.id_main_demofilter).setOnClickListener(this);
         findViewById(R.id.id_main_demofiltersprite).setOnClickListener(this);
+        
+        
         
         findViewById(R.id.id_main_demoedit).setOnClickListener(this);
         
@@ -115,6 +118,8 @@ public class MainActivity extends Activity implements OnClickListener{
         
         findViewById(R.id.id_main_testvideoplay).setOnClickListener(this);
         findViewById(R.id.id_main_viewremark).setOnClickListener(this);
+
+        findViewById(R.id.id_main_mediapoolexecute_filter).setOnClickListener(this);
         
         
         
@@ -134,7 +139,7 @@ public class MainActivity extends Activity implements OnClickListener{
 				new CopyDefaultVideoAsyncTask().execute();
 			}
 		});
-        showHintDialog();
+        
     }
     private boolean isStarted=false;
     @Override
@@ -280,6 +285,9 @@ public class MainActivity extends Activity implements OnClickListener{
 				break;
 			case R.id.id_main_filterexecute:
 				startExecuteDemo(FilterExecuteActivity.class);
+				break;
+			case R.id.id_main_mediapoolexecute_filter:
+				startExecuteDemo(FilterSpriteExecuteActivity.class);
 				break;
 			case R.id.id_main_mediapoolexecute:
 				startExecuteDemo(VideoVideoExecuteActivity.class);

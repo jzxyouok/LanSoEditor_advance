@@ -6,12 +6,13 @@ import java.util.Locale;
 
 import jp.co.cyberagent.android.gpuimage.GPUImageFilter;
 
+import com.example.lansongeditordemo.MediaPoolView.onViewAvailable;
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.MediaPool;
 import com.lansosdk.box.MediaPoolUpdateMode;
 import com.lansosdk.box.VideoSprite;
 import com.lansosdk.box.ViewSprite;
 import com.lansosdk.box.ISprite;
-import com.lansosdk.box.MediaPoolView;
 import com.lansosdk.box.onMediaPoolCompletedListener;
 import com.lansosdk.box.onMediaPoolProgressListener;
 import com.lansosdk.box.onMediaPoolSizeChangedListener;
@@ -53,15 +54,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
+/**
+ *  演示:  图片合成视频的同时保存成文件.
+ *  
+ *  
+ *
+ */
 public class PictureSetRealTimeActivity extends Activity{
     private static final String TAG = "VideoActivity";
 
 
     private MediaPoolView mPlayView;
-    
-    
-    private ISprite  mSpriteMain=null;
     
     
     private ArrayList<SlideEffect>  slideEffectArray;
@@ -121,8 +124,10 @@ public class PictureSetRealTimeActivity extends Activity{
     {
 		
     	mPlayView.setUpdateMode(MediaPoolUpdateMode.AUTO_FLUSH,25);
+    	if(DemoCfg.ENCODE){
+    		mPlayView.setRealEncodeEnable(480,480,1000000,(int)25,editTmpPath);
+    	}
     	
-    	mPlayView.setRealEncodeEnable(480,480,1000000,(int)25,editTmpPath);
     	mPlayView.setMediaPoolSize(480,480,new onMediaPoolSizeChangedListener() {
 			
 			@Override
@@ -130,12 +135,13 @@ public class PictureSetRealTimeActivity extends Activity{
 				// TODO Auto-generated method stub
 				mPlayView.startMediaPool(new MediaPoolProgressListener(),new MediaPoolCompleted());
 				
+					isStarted=true;
+				
 				   DisplayMetrics dm = new DisplayMetrics();// 获取屏幕密度（方法2）
 			       dm = getResources().getDisplayMetrics();
 			        
 			           
 			      int screenWidth  = dm.widthPixels;	
-			       
 			      String picPath=SDKDir.TMP_DIR+"/"+"picname.jpg";   
 			      if(screenWidth>=1080){
 			    	  CopyFileFromAssets.copy(mContext, "pic1080x1080u2.jpg", SDKDir.TMP_DIR, "picname.jpg");
@@ -143,7 +149,8 @@ public class PictureSetRealTimeActivity extends Activity{
 			      else{
 			    	  CopyFileFromAssets.copy(mContext, "pic720x720.jpg", SDKDir.TMP_DIR, "picname.jpg");
 			      }
-			      mSpriteMain=mPlayView.obtainBitmapSprite(BitmapFactory.decodeFile(picPath));
+			      //先 获取第一张Bitmap的Sprite, 因为是第一张,放在MediaPool中维护的数组的最下面, 认为是背景图片.
+			      mPlayView.obtainBitmapSprite(BitmapFactory.decodeFile(picPath));
 			      
 			      slideEffectArray=new ArrayList<SlideEffect>();
 			      
@@ -155,7 +162,34 @@ public class PictureSetRealTimeActivity extends Activity{
 			      getFifthSprite(R.drawable.pic5,20000,25000);  //20---25秒
 			}
 		});
+    	
+    	//这里仅仅是举例,当界面再次返回的时候,
+//    	mPlayView.setOnViewAvailable(new onViewAvailable() {
+//			
+//			@Override
+//			public void viewAvailable(MediaPoolView v) {
+//				// TODO Auto-generated method stub
+//				Log.i(TAG,"is started==============>"+isStarted);
+//				if(isStarted){
+//				    
+//				      String picPath=SDKDir.TMP_DIR+"/"+"picname.jpg";   
+//				      mPlayView.startMediaPool(new MediaPoolProgressListener(),new MediaPoolCompleted());
+//					  mSpriteMain=mPlayView.obtainBitmapSprite(BitmapFactory.decodeFile(picPath));
+//				      
+//				      slideEffectArray=new ArrayList<SlideEffect>();
+//				      
+//						//这里同时获取多个,只是不显示出来.
+//				      getFifthSprite(R.drawable.pic1,0,5000);  		//1--5秒.
+//				      getFifthSprite(R.drawable.pic2,5000,10000);  //5--10秒.
+//				      getFifthSprite(R.drawable.pic3,10000,15000);	//10---15秒 
+//				      getFifthSprite(R.drawable.pic4,15000,20000);  //15---20秒
+//				      getFifthSprite(R.drawable.pic5,20000,25000);  //20---25秒
+//				}
+//			}
+//		});
+		
     }
+    private boolean isStarted=false; //是否已经播放过了.
     private void getFifthSprite(int resId,long startMS,long endMS)
     {
     	ISprite item=mPlayView.obtainBitmapSprite(BitmapFactory.decodeResource(getResources(), resId));
@@ -185,10 +219,14 @@ public class PictureSetRealTimeActivity extends Activity{
 		public void onProgress(MediaPool v, long currentTimeUs) {
 			// TODO Auto-generated method stub
 //			  Log.i(TAG,"MediaPoolProgressListener: us:"+currentTimeUs);
+			
 			  if(currentTimeUs>=26*1000*1000)  //26秒.多出一秒,让图片走完.
 			  {
 				  mPlayView.stopMediaPool();
 			  }
+			  
+//			  Log.i(TAG,"current time Us "+currentTimeUs);
+			  
 			  if(slideEffectArray!=null && slideEffectArray.size()>0){
 				  for(SlideEffect item: slideEffectArray){
 					  item.run(currentTimeUs/1000);
@@ -205,7 +243,7 @@ public class PictureSetRealTimeActivity extends Activity{
     	// TODO Auto-generated method stub
     	super.onDestroy();
     	
-
+    	Log.i(TAG,"is started==========onDestroy>");
     	if(mPlayView!=null){
     		mPlayView.stopMediaPool();
     		mPlayView=null;        		   

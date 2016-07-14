@@ -28,6 +28,7 @@ import jp.co.cyberagent.android.gpuimage.GPUImageToneCurveFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageVignetteFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageWhiteBalanceFilter;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.BitmapSprite;
 import com.lansosdk.box.FilterExecute;
 import com.lansosdk.box.ISprite;

@@ -2,6 +2,7 @@ package com.example.lansongeditordemo;
 
 import java.io.IOException;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.videoeditor.MediaInfo;
 import com.lansosdk.videoeditor.player.IMediaPlayer;
 import com.lansosdk.videoeditor.player.IRenderView;
@@ -25,7 +26,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+/**
+ * 视频播放 
+ *
+ */
 public class VideoPlayerActivity extends Activity {
 	   
    	private static final boolean VERBOSE = true; 

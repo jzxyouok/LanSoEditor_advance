@@ -156,6 +156,7 @@
 			
 			<TextView  style="@style/main_item_arrow"/> 
 	</RelativeLayout>
+	
 	<RelativeLayout  android:id="@+id/id_main_mediapoolexecute" style="@style/main_item_reletivelayout">
           
 	         <LinearLayout style="@style/main_item_linearlayout">
@@ -166,6 +167,16 @@
 			<TextView  style="@style/main_item_arrow"/> 
 	</RelativeLayout>
 	
+	
+	<RelativeLayout  android:id="@+id/id_main_mediapoolexecute_filter" style="@style/main_item_reletivelayout">
+          
+	         <LinearLayout style="@style/main_item_linearlayout">
+           	    <TextView   android:text="后台视频滤镜 MediaPool" 				style="@style/main_item_textview1"/>
+           	    <TextView android:text="UI交互操作后,后台统一处理叠加"		style="@style/main_item_textview2"/>
+			</LinearLayout>
+			
+			<TextView  style="@style/main_item_arrow"/> 
+	</RelativeLayout>
 		
 		<RelativeLayout  android:id="@+id/id_main_mediapoolpictureexecute" style="@style/main_item_reletivelayout">
           

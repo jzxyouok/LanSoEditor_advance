@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import com.example.lansongeditordemo.GPUImageFilterTools.FilterAdjuster;
 import com.example.lansongeditordemo.GPUImageFilterTools.OnGpuImageFilterChosenListener;
-import com.lansosdk.box.FilterView;
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.onFilterViewSizeChangedListener;
 import com.lansosdk.videoeditor.MediaInfo;
 import com.lansosdk.videoeditor.MediaSource;
@@ -39,7 +39,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
+/**
+ * 
+ *  演示单独使用FilterView来做视频滤镜处理.
+ *  FilterView 是单独用来视频滤镜的
+ */
 public class FilterPreviewDemoActivity extends Activity {
     private static final String TAG = "VideoActivity";
 
@@ -185,8 +189,10 @@ public class FilterPreviewDemoActivity extends Activity {
     	MediaInfo info=new MediaInfo(mVideoPath);
     	info.prepare();
     	
+    	if(DemoCfg.ENCODE){
+    		mFilterView.setRealEncodeEnable(1000000,(int)info.vFrameRate,editTmpPath);
+    	}
     	
-    	mFilterView.setRealEncodeEnable(1000000,(int)info.vFrameRate,editTmpPath);
     	mFilterView.setFilterRenderSize(480,480,mp.getVideoWidth(),mp.getVideoHeight(),new onFilterViewSizeChangedListener() {
 			
 			@Override

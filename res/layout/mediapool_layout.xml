@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
    
-      <com.lansosdk.box.MediaPoolView
+      <com.example.lansongeditordemo.MediaPoolView
             android:id="@+id/mediapool_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

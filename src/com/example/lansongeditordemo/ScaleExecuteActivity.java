@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.BitmapSprite;
 import com.lansosdk.box.ScaleExecute;
 import com.lansosdk.box.onMediaPoolCompletedListener;
@@ -25,6 +26,13 @@ import com.lansosdk.videoeditor.VideoEditor;
 import com.lansosdk.videoeditor.utils.FileUtils;
 import com.lansosdk.videoeditor.utils.snoCrashHandler;
 
+/**
+ * 对视频画面进行缩放, 用ffmpeg也可以完成, 但手机cpu的限制,ffmpeg用软件代码的形式来对一帧像素进行处理, 太慢了,在手机上完全无法使用. 基于此,我们推出了 用OpenGL来完成的硬缩放的方式,
+ * 极大的提升了视频缩放的速度.
+ * 
+ *  演示: ScaleExecute类的使用. 这个是在后台进行缩放,在OpenGL线程中运行.
+ *
+ */
 public class ScaleExecuteActivity extends Activity{
 
 	String videoPath=null;
@@ -64,7 +72,7 @@ public class ScaleExecuteActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				
-				if(mMediaInfo.vDuration>60*1000){//大于60秒
+				if(mMediaInfo.vDuration>=60*1000){//大于60秒
 					showHintDialog();
 				}else{
 					testScaleEdit();
@@ -89,9 +97,6 @@ public class ScaleExecuteActivity extends Activity{
        
        editTmpPath=SDKFileUtils.newMp4PathInBox();
        dstPath=SDKFileUtils.newMp4PathInBox();
-       
-       
-      
 	}
 	
 	
@@ -120,7 +125,10 @@ public class ScaleExecuteActivity extends Activity{
 			return ;
 		
 		isExecuting=true;
-		ScaleExecute  vScale=new ScaleExecute(ScaleExecuteActivity.this,videoPath);
+		/**
+		 * 创建ScaleExecute类.
+		 */
+		ScaleExecute  vScale=new ScaleExecute(ScaleExecuteActivity.this,videoPath);  //videoPath是路径
 		vScale.setOutputPath(editTmpPath);
 		vScale.setScaleSize(mMediaInfo.vCodecWidth/2,mMediaInfo.vCodecHeight/2);
 		

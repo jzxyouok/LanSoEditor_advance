@@ -2,13 +2,11 @@
 <resources>
 
     <string name="app_name">LanSongEditorDemo</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
     <string name="message_granted">All permissions have been granted.</string>
     <string name="message_denied">Permission \"%1$s\" has been denied.</string>
     
-    	<string name="sdk_limit">SDK版本号是V1.6 [商用版本]\n\nSDK底层做了授权限制,仅可在此demo中运行,并有效时间到 \"%1$d\"年 \"%2$d\"月之前,请注意.</string>
+    	<string name="sdk_limit">SDK版本号是V1.6.2 [商用版本]\n\nSDK底层做了授权限制,仅可在此demo中运行,并有效时间到 \"%1$d\"年 \"%2$d\"月之前,请注意.</string>
       <string name="select_video">请选择视频</string>
 	
 		<string name="video_editor_demo_hint">兼容完整的ffmpeg命令.这里仅举例画面裁剪的功能,来演示我们优化的ffmpeg硬件加速功能,更多可以在\n https://github.com/LanSoSdk/LanSoEditor_common \n这里下载,测试\n\n,

@@ -2,6 +2,7 @@ package com.example.lansongeditordemo;
 
 import java.io.File;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.videoeditor.MediaInfo;
 
 import android.content.Context;

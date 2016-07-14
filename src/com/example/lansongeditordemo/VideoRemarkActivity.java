@@ -6,13 +6,13 @@ import java.util.Locale;
 import jp.co.cyberagent.android.gpuimage.GPUImageFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageSepiaFilter;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.AudioEncodeDecode;
 import com.lansosdk.box.MediaPoolUpdateMode;
 import com.lansosdk.box.AudioMixManager;
 import com.lansosdk.box.VideoSprite;
 import com.lansosdk.box.ViewSprite;
 import com.lansosdk.box.ISprite;
-import com.lansosdk.box.MediaPoolView;
 import com.lansosdk.box.onMediaPoolSizeChangedListener;
 import com.lansosdk.videoeditor.MediaInfo;
 import com.lansosdk.videoeditor.MediaSource;
@@ -50,7 +50,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
+/**
+ *  演示: 使用MediaPool完成 视频的实时标记.
+ *  
+ *  在视频处理的过程中, 提供 重写MediaPool中的onTouchEvent方法的类TestTouchView,当点击这个View时,获取到点击位置, 并获取一个BitmapSprite, 并再次位置显示叠加图片.move时,移动图片.
+ *  在手指抬起后, 释放BitmapSprite,从而实时滑动画面实时标记的效果.
+ *
+ */
 public class VideoRemarkActivity extends Activity{
     private static final String TAG = "VideoRemarkActivity";
 
@@ -97,8 +103,8 @@ public class VideoRemarkActivity extends Activity{
 		});
         findViewById(R.id.id_mediapool_saveplay).setVisibility(View.GONE);
         
-        editTmpPath=SDKFileUtils.newMp4PathInBox();
-        dstPath=SDKFileUtils.newMp4PathInBox();
+        editTmpPath=FileUtils.createFile(SDKDir.TMP_DIR, ".mp4");
+        dstPath=SDKFileUtils.newFilePath(SDKDir.TMP_DIR, ".mp4");
         
     }
     @Override

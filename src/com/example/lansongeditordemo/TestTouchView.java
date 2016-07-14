@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.ISprite;
-import com.lansosdk.box.MediaPoolView;
 
 public class TestTouchView extends MediaPoolView{
 

@@ -5,9 +5,10 @@ import java.util.Locale;
 
 import jp.co.cyberagent.android.gpuimage.GPUImageFilter;
 
+import com.example.lansongeditordemo.MediaPoolView.onViewAvailable;
+import com.lansoeditor.demo.R;
 import com.lansosdk.box.BitmapSprite;
 import com.lansosdk.box.ISprite;
-import com.lansosdk.box.MediaPoolView;
 import com.lansosdk.box.onMediaPoolSizeChangedListener;
 import com.lansosdk.videoeditor.MediaInfo;
 import com.lansosdk.videoeditor.MediaSource;
@@ -38,7 +39,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
+/**
+ * 演示: 使用MediaPool来实现 视频和图片的实时叠加. 
+ *
+ */
 public class VideoPictureRealTimeActivity extends Activity implements OnSeekBarChangeListener {
     private static final String TAG = "VideoActivity";
 
@@ -176,15 +180,19 @@ public class VideoPictureRealTimeActivity extends Activity implements OnSeekBarC
     		MediaInfo info=new MediaInfo(mVideoPath,false);
         	info.prepare();
         	
-    		mPlayView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
-    	
+        	if(DemoCfg.ENCODE){
+        		//设置使能 实时录制, 即把正在MediaPool中呈现的画面实时的保存下来,实现所见即所得的模式
+        		mPlayView.setRealEncodeEnable(480,480,1000000,(int)info.vFrameRate,editTmpPath);
+        	}
+        	//设置当前MediaPool的宽度和高度,并把宽度自动缩放到父view的宽度,然后等比例调整高度.
     		mPlayView.setMediaPoolSize(480,480,new onMediaPoolSizeChangedListener() {
 			
 			@Override
 			public void onSizeChanged(int viewWidth, int viewHeight) {
 				// TODO Auto-generated method stub
+				// 开始mediaPool的渲染线程. 
 				mPlayView.startMediaPool(null,null);
-				
+				//获取一个主视频的 VideoSprite
 				mSpriteMain=mPlayView.obtainMainVideoSprite(mplayer.getVideoWidth(),mplayer.getVideoHeight());
 				if(mSpriteMain!=null){
 					mplayer.setSurface(new Surface(mSpriteMain.getVideoTexture()));
@@ -193,9 +201,9 @@ public class VideoPictureRealTimeActivity extends Activity implements OnSeekBarC
 				addBitmapSprite();
 			}
 		});
+    		
+    		
     }
-   
-    
     private void addBitmapSprite()
     {
     	mBitmapSprite=mPlayView.obtainBitmapSprite(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
